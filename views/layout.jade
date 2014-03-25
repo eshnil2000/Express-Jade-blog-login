@@ -1,7 +1,35 @@
-doctype 5
+doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		//title= title
+		title="Fake title"
+		//link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css')
+		link(rel='stylesheet', href='/stylesheets/responsiveblogstyles.css')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		header
+			nav.navbar.navbar-default
+				.container(ng-controller='DemoCtrl')
+					.navbar-header
+						a.navbar-brand(href='http://127.0.0.1/Eshu/test.html' style="color:#F15926; font-weight:bold; font-style:italic; font-family: 'Arial', fantasy;") Xpressionz Studios
+					ul.nav.navbar-nav.navbar-right
+						li
+							a(href='http://127.0.0.1/Eshu/test.html')
+								i.fa.fa-home Home
+						li
+							a(href='/blog/lgin')
+								i.fa.fa-sign-in Login
+						//li
+						//	a(href='#eventsCalendar', ng-click='setMaster( $event)')
+						//		i.fa.fa-shield Events Calendar
+						//li
+						//	a(href='http://127.0.0.1:3005')
+						//		i.fa.fa-edit Blog
+						//li
+						//	a(href='#contact')
+						//		i.fa.fa-comment Contact
+	block extraHeader
+	body
+		block content
+		block scripts

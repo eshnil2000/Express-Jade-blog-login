@@ -41,11 +41,30 @@ ArticleProvider.prototype.save = function(articles, callback) {
     callback(null, articles);
 };
 
+//addCommentToArticle
+
+ArticleProvider.prototype.addCommentToArticle = function(articleId, comment, callback) {
+    this.dummyData[0].comments.push({ author: comment.person,
+    comment: comment.comment,
+    created_at: new Date()});
+    console.log( this.dummyData[0].comments);
+    callback(null, articleId);
+
+};
+
+ArticleProvider.prototype.getCollection= function(articleId,callback) {
+    console.log('in get collection'); 
+    
+
+};
+
 /* Lets bootstrap with dummy data */
 new ArticleProvider().save([
     {title: 'Post one', body: 'Body one', comments:[{author:'Bob', comment:'I love it'}, {author:'Dave', comment:'This is rubbish!'}]},
     {title: 'Post two', body: 'Body two'},
     {title: 'Post three', body: 'Body three'}
 ], function(error, articles){});
+
+
 
 exports.ArticleProvider = ArticleProvider;

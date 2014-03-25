@@ -1,13 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  #articles
-      - each article in articles
-          div.article
-              div.created_at= article.created_at
-              div.title
-                  a(href="/blog/"+article._id.toHexString())!= article.title
-                  //a(href="/blog/"+article._id)!= article.title // MEMORY OPTION: enable for memory based option to work
-              div.body= article.body
+
+	#articles
+		p.right
+			//a(href="/blog/lgin").button Login
+			//button(onclick="location.href='/blog/lgin'").button Login
+		p.center
+			//a(href="/blog/new").button(disabled="disabled") Add Blog
+			button(onclick="location.href='/blog/new'" disabled=cookieTracker!==1 ).button Add Blog
+			//input(type="checkbox" name="remember") 
+			//a(href="/blog/new").button Load More
+		ul.thinks.hfeed.unstyled.group
+			- each article in articles
+				li.latest.thought
+					div.article.entry-content
+							div.created_at.published.command= article.created_at
+							//div.created_at.published.command= #{prettyDate(article.created_at)}
+							
+							div.title.entry-title.h2
+									//a(href="/blog/"+article._id.toHexString())!= article.title
+									a(href="/blog/"+article._id)!= article.title 
+									// MEMORY OPTION: enable for memory based option towork
+							div.entry-content.body= article.body
